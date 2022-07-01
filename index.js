@@ -1,10 +1,49 @@
 let log = console.log 
 
 
-import {toDoList} from './todolistTASK'
-import  {projectside} from './todolistPROJECTS'
 
-let projectarray = []
+
+
+
+
+class projectside {
+    constructor(title,description){
+        this.title = title
+        this.description = description
+    
+        this.info = function(){
+         
+            return title + description
+        }
+    
+    }}
+    class toDoList  {
+
+        constructor(title,description,dueDate,priority, checkbox){
+            this.title = title
+            this.description = description
+            this.dueDate = dueDate
+            this.priority = priority
+            this.checkbox = checkbox
+           
+        
+            this.info = function(){
+             
+                return title + description + dueDate + priority + checkbox
+            }
+            }}
+
+
+
+
+ 
+
+
+
+
+
+
+            const projectarray = []
 
 
     // Cancel on project form
@@ -40,7 +79,11 @@ let projectarray = []
         populatesideprojects()
     })
         
-  
+    // empty main text
+    let maintext =  document.createElement('div')
+    maintext.id = 'maintext'
+    maintext.textContent = "Create a task!"
+    main.append(maintext)
     
 function populatesideprojects(){
 
@@ -65,6 +108,7 @@ function populatesideprojects(){
        
       
        
+
         projectext.textContent = projectarray[index].title
         document.getElementById('activeprojects').append(newprojectside)
 
@@ -73,6 +117,11 @@ function populatesideprojects(){
             projectext.parentElement.remove()
 
             projectarray.splice(projectext.dataset.id,1)
+            if (projectarray.length == 0 ) {
+                          
+                document.getElementById('name').textContent = "It's quiet..."
+                document.getElementById('description').textContent = '...'
+                        }
            
         }
 
@@ -81,11 +130,15 @@ function populatesideprojects(){
             
             document.getElementById('name').textContent = projectarray[index].title
             document.getElementById('description').textContent = projectarray[index].description
-        
+
+
        
         
             let main =  document.getElementById('main')
+          
             main.innerHTML = ''
+      
+        
            
             let todoplus = document.createElement('todoplus')
            
@@ -103,7 +156,10 @@ function populatesideprojects(){
          todoplus.onclick = function() {
             document.getElementById('taskpopup').style.display = 'block'
         }
-            
+
+       
+        
+      
            
         }
         populutatetasks()
@@ -127,6 +183,15 @@ function populatesideprojects(){
         function populutatetasks(){
             
 document.getElementById('main').innerHTML = ''
+
+// body text when there is no projcets
+if (projectarray[index].tasks == undefined || projectarray[index].tasks.length == 0 ) {
+    let maintext =  document.createElement('div')
+    maintext.id = 'maintext'
+    maintext.textContent = "It's quiet here..."
+    main.append(maintext)
+  
+             }
 
 
          let taskies = projectarray[index].tasks
@@ -228,12 +293,24 @@ document.getElementById('main').innerHTML = ''
 
 
                     exit.onclick = function (){
-                        log(taskies[index])
+                     
                         
                         removed =  taskies.pop(taskies[index])
                           newtask.remove()
 
+                          if (taskies.length == 0 ) {
+                           let maintext =  document.createElement('div')
+                           maintext.id = 'maintext'
+                           maintext.textContent = "It's quiet here..."
+                           main.append(maintext)
+                         
+                                    }
+
+                         
+
                     }
+
+             
                           
                     arrow.addEventListener("click", function(){
                                        

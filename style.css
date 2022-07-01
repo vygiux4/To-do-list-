@@ -54,16 +54,23 @@ body {
     color: white;
     border: 2px solid white;
 }
+
+.addproject:hover { 
+    background-color:rgb(77, 77, 77) ;
+    cursor: pointer;
+}
   
 .firstform {
     display: none;
     align-self: center;
     left: 70vh;
     position: absolute;
-    background-color: rgb(85, 64, 36);
+    background-color: rgb(22, 22, 22);
     padding: 10px;
     padding-right: 40px;
     border-radius: 10px;
+    color: white;
+    border: 2px solid white;
 }
 
 
@@ -72,10 +79,12 @@ body {
     align-self: center;
     left: 70vh;
     position: absolute;
-    background-color: rgb(85, 64, 36);
+    background-color: rgb(27, 27, 26);
     padding: 10px;
     padding-right: 40px;
     border-radius: 10px;
+    color: white;
+    border: 2px solid white;
 }
 
 li {
@@ -101,19 +110,30 @@ input {
     padding: 15px;
     padding-right: 30px;
     padding-left: 30px;
-    background: rgb(14, 187, 14);
+    background: rgb(31, 31, 31);
     border-radius: 5px;
     font-size: 15px;
+    border: 2px solid white;
+    color: white;
     
+}
+.addproj:hover {
+    background: rgb(96, 185, 11);
 }
 
 .cancel {
     padding: 15px;
     padding-right: 40px;
     padding-left: 40px;
-    background: rgb(187, 69, 14);
+    background: rgb(39, 38, 38);
     border-radius: 5px;
     font-size: 15px;
+    border:2px solid white;
+    color: white;
+}
+
+.cancel:hover{
+    background: rgb(187, 69, 14);
 }
 
 
@@ -130,8 +150,8 @@ input {
 
 #projectside {
     display: grid;
-    grid-template-columns: 250px 50px;    
-    grid-template-rows: 40px 10px; 
+    grid-template-columns: 230px 50px;    
+    grid-template-rows: 35px 15px; 
       margin: 20px;
     background-color: rgb(40, 41, 41);
     border: 2px solid white;
@@ -143,6 +163,13 @@ input {
     font-size: 30px;
  
 }
+
+#projectside:hover{
+    background-color: rgb(54, 54, 54);
+}
+
+
+
 
 #mainheader {
     display: flex;
@@ -215,14 +242,22 @@ input {
     justify-content: space-around;
 }
 
+#maintext { 
+    margin: 250px;
+    align-self: center;
+    color: white;
+   
+}
+
 #newtask {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: blueviolet;
+    background-color: rgb(65, 63, 63);
     height: 50px;
    margin: 20px;
    margin-bottom: 0;
+   border: 2px solid white;
   
 
 }
@@ -230,10 +265,12 @@ input {
 #newtaskexpand {
      display: none;
      overflow: hidden;
-    background-color: aqua;
+    background-color: rgb(48, 48, 48);
     margin: 20px;
     margin-top: 0;
     height: 80px;
+    
+    border-top: none;
 }
 
 #radio {
@@ -260,10 +297,20 @@ input {
     align-self: flex-end;
     font-size: 20px;
     grid-column: 2/3;
-    color: red;
-    width: 50px;
+    color: rgb(255, 255, 255);
+    width: 15px;
     grid-row: 2/3;
+    padding-bottom: 5px;
+    
 }
+#projectsidexbutton:hover { 
+    color: red;
+    cursor: pointer;
+}
+
+
+
+
 #projectext {
     display: flex;
     justify-content: center;
