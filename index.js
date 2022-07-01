@@ -251,7 +251,7 @@ document.getElementById('main').innerHTML = ''
             }
 
 
-           log(' hello')
+       
     
         
 
