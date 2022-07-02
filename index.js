@@ -109,6 +109,10 @@ if (localStorage.length > 0){
    
 function populatesideprojects(){
 
+
+    if (projectarray.length == 0 ){
+        main.innerHTML = ''
+    }
   
         for (let index = 0; index < projectarray.length; index++) {
            
