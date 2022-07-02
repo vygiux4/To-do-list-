@@ -110,9 +110,7 @@ if (localStorage.length > 0){
 function populatesideprojects(){
 
 
-    if (projectarray.length == 0 ){
-        main.innerHTML = ''
-    }
+  
   
         for (let index = 0; index < projectarray.length; index++) {
            
@@ -145,9 +143,17 @@ function populatesideprojects(){
             projectarray.splice(projectext.dataset.id,1)
             localStorage.setItem('projectside', JSON.stringify(projectarray))
             if (projectarray.length == 0 ) {
-                          
+         
+                    main.innerHTML = ''
+                
                 document.getElementById('name').textContent = "It's quiet..."
                 document.getElementById('description').textContent = '...'
+
+                let maintext =  document.createElement('div')
+                maintext.id = 'maintext'
+                maintext.textContent = "It's quiet here..."
+                main.append(maintext)
+
                         }
            
         }
