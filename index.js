@@ -42,8 +42,24 @@ class projectside {
 
 
 
+            let projectarray = []
 
-            const projectarray = []
+
+if (localStorage.length > 0){
+
+
+    let  project  = JSON.parse(localStorage.getItem('projectside'))
+
+   projectarray = project
+
+   log(projectarray)
+    // projectarray.push(project)
+     populatesideprojects()
+   
+}
+
+
+
 
 
     // Cancel on project form
@@ -63,14 +79,19 @@ class projectside {
 
   
 
-// ADD PROJECT MAIN
+// ADD PROJECT 
     document.getElementById('addproj').addEventListener("click", function (){
       
 
         let newproject = new projectside(document.getElementById('project').value,document.getElementById('project2').value)
 
         projectarray.push(newproject)
+
+     
         
+    //   localStorage.setItem('projectside', JSON.stringify(newproject))
+
+    localStorage.setItem('projectside', JSON.stringify(projectarray))
 
         document.querySelector('form').style.display = 'none'
 
@@ -82,9 +103,10 @@ class projectside {
     // empty main text
     let maintext =  document.createElement('div')
     maintext.id = 'maintext'
-    maintext.textContent = "Create a task!"
+    maintext.textContent = "Click on a project!"
     main.append(maintext)
     
+   
 function populatesideprojects(){
 
   
@@ -117,6 +139,7 @@ function populatesideprojects(){
             projectext.parentElement.remove()
 
             projectarray.splice(projectext.dataset.id,1)
+            localStorage.setItem('projectside', JSON.stringify(projectarray))
             if (projectarray.length == 0 ) {
                           
                 document.getElementById('name').textContent = "It's quiet..."
@@ -175,11 +198,16 @@ function populatesideprojects(){
     }
 
     projectarray[index].tasks.push(taskdetails)
-    
+
+    localStorage.setItem('projectside', JSON.stringify(projectarray))
+
+   
    
     populutatetasks()
  }
                        } 
+
+                       
         function populutatetasks(){
             
 document.getElementById('main').innerHTML = ''
@@ -281,22 +309,31 @@ if (projectarray[index].tasks == undefined || projectarray[index].tasks.length =
 
 
                       checkbox.onclick = function () {
-                          log(taskies[index])
+                          
                        
                         if (taskies[index].checkbox == 'unchecked'){
                             taskies[index].checkbox = 'checked'
+                            localStorage.setItem('projectside', JSON.stringify(projectarray))
                             return
                         }
                         if (taskies[index].checkbox == 'checked'){
                             taskies[index].checkbox =  'unchecked'
+                            localStorage.setItem('projectside', JSON.stringify(projectarray))   
                         }  }
 
 
                     exit.onclick = function (){
                      
+                     
+
+                         let indexy = taskies.indexOf(taskies[index])
                         
-                        removed =  taskies.pop(taskies[index])
-                          newtask.remove()
+                        
+                          taskies.splice(indexy,1)
+                        
+                            newtask.remove()
+
+                          localStorage.setItem('projectside', JSON.stringify(projectarray))
 
                           if (taskies.length == 0 ) {
                            let maintext =  document.createElement('div')
@@ -321,13 +358,19 @@ if (projectarray[index].tasks == undefined || projectarray[index].tasks.length =
                                            content.style.display = "block";
                                        }
                                    } )
-                                }}}}
+                                }}}
+                            
+                            
+                            
+                            }
     
             document.getElementById('canceltask').onclick = function(){
                 document.getElementById('taskpopup').style.display = 'none'
             }
 
 
+
+ 
        
     
         
